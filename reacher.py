@@ -11,9 +11,6 @@ from config import (
     N_EPISODES,
 )
 
-from ddpg_agent import DDPGAgent
-from evaluate import evaluate
-from model import Actor
 from train import ddpg
 
 if __name__ == "__main__":
