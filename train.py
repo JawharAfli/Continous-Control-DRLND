@@ -6,7 +6,9 @@ import torch
 from ddpg_agent import DDPGAgent
 
 
-def ddpg(env, brain_name, state_size, action_size, random_seed, n_episodes=2000, max_t=1000):
+def ddpg(
+    env, brain_name, state_size, action_size, random_seed, n_episodes=2000, max_t=1000
+):
     env_info = env.reset(train_mode=True)[brain_name]
 
     avg_score = []
@@ -18,14 +20,17 @@ def ddpg(env, brain_name, state_size, action_size, random_seed, n_episodes=2000,
 
     states = env_info.vector_observations
 
-    agents = [DDPGAgent(state_size, action_size, random_seed) for _ in range(len(env_info.agents))]
+    agents = [
+        DDPGAgent(state_size, action_size, random_seed)
+        for _ in range(len(env_info.agents))
+    ]
     actions = [agent.act(states[i]) for i, agent in enumerate(agents)]
 
     for i_episode in range(1, n_episodes + 1):
         states = env_info.vector_observations
         for agent in agents:
             agent.reset()
-            
+
         for t in range(max_t):
             actions = [agent.act(states[i]) for i, agent in enumerate(agents)]
             env_info = env.step(actions)[brain_name]

@@ -34,17 +34,21 @@ if __name__ == "__main__":
 
     # number of agents
     num_agents = len(env_info.agents)
-    print('Number of agents:', num_agents)
+    print("Number of agents:", num_agents)
 
     # size of each action
     action_size = brain.vector_action_space_size
-    print('Size of each action:', action_size)
+    print("Size of each action:", action_size)
 
-    # examine the state space 
+    # examine the state space
     states = env_info.vector_observations
     state_size = states.shape[1]
-    print('There are {} agents. Each observes a state with length: {}'.format(states.shape[0], state_size))
-    print('The state for the first agent looks like:', states[0])
+    print(
+        "There are {} agents. Each observes a state with length: {}".format(
+            states.shape[0], state_size
+        )
+    )
+    print("The state for the first agent looks like:", states[0])
 
     if args.train:
 
@@ -55,7 +59,7 @@ if __name__ == "__main__":
             action_size=action_size,
             random_seed=0,
             n_episodes=N_EPISODES,
-            max_t=MAX_T
+            max_t=MAX_T,
         )
 
         fig = plt.figure()
