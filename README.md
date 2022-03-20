@@ -2,6 +2,7 @@
 
 This project is part of Udacity's Deep Reinforcement Learning NanoDegree. Its main objective is to maintain the position of a double-jointed arm at the target location for as many time steps as possible using Unity's ML-agents reacher environment.
 
+## Environment
 ![env](reacher.gif)
 
 In this environment, a double-jointed arm can move to target locations. A reward of +0.1 is provided for each step that the agent's hand is in the goal location. Thus, the goal of your agent is to maintain its position at the target location for as many time steps as possible.
